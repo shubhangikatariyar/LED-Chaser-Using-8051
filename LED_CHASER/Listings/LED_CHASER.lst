@@ -1,0 +1,568 @@
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LED_CHASER.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE LED_CHASER.asm SET(SMALL) DEBUG PRINT(.\Listings\LED_CHASER.lst) OBJECT
+                      (.\Objects\LED_CHASER.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 2100              2             JMP start
+                       3             
+                       4             
+0003                   5     org                     0003H    
+0003 A990              6                             MOV             R1,P1
+0005 32                7                             RETI    
+                       8             
+0100                   9     org 0100h
+0100                  10     start:
+                      11             
+                      12     
+0100 D2B0             13         SETB  P3.0 
+0102 75A000           14         MOV   P2,#00h
+0105 758000           15         MOV   P0,#00h
+0108 7590FF           16         MOV   P1,#0ffh      
+010B 7E00             17         Mov   R6,#00h 
+010D D288             18         SETB        IT0                              
+010F D2AF             19             SETB    EA                               
+0111 D2A8             20             SETB    EX0             
+                      21      
+                      22      
+0113                  23     AGAIN:  
+0113 EE               24               Mov A,R6
+0114 1200C8           25                   LCALL  get_SSD_code
+0117 F580             26                       MOV P0,A 
+0119 1201B7           27                   LCALL PATTERN01
+011C 20B0F4           28                   JB P3.0,AGAIN  
+011F 30B0FD           29                       JNB P3.0,$ 
+0122 0E               30                       INC R6
+                      31     
+                      32                
+                      33     
+0123 EE               34     AGAIN2:   Mov A,R6
+0124 1200C8           35                   LCALL   get_SSD_code
+0127 F580             36                       MOV P0,A 
+0129 120208           37                   LCALL PATTERN02
+012C 20B0F4           38                   JB P3.0, AGAIN2         
+012F 30B0FD           39               JNB P3.0,$ 
+0132 0E               40                   INC R6
+                      41     
+                      42     
+0133                  43     AGAIN3: 
+0133 EE               44               Mov A,R6
+0134 1200C8           45                   LCALL   get_SSD_code
+0137 F580             46                       MOV P0,A 
+0139 12026B           47                       LCALL PATTERN03       
+013C 20B0F4           48               JB P3.0,AGAIN3        
+013F 30B0FD           49               JNB P3.0,$ 
+0142 0E               50                       INC R6
+                      51                     
+                      52                     
+                      53     
+0143                  54     AGAIN4: 
+0143 EE               55                   Mov A,R6
+0144 1200C8           56                   LCALL   get_SSD_code
+0147 F580             57                       MOV P0,A
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     2
+
+0149 120298           58                       LCALL PATTERN04       
+014C 20B0F4           59               JB P3.0,AGAIN4 
+014F 30B0FD           60                   JNB P3.0,$ 
+0152 0E               61                   INC R6 
+                      62               
+                      63     
+0153                  64     AGAIN5:   
+0153 EE               65                Mov A,R6
+0154 1200C8           66                    LCALL   get_SSD_code
+0157 F580             67                        MOV P0,A
+0159 1202F1           68                        LCALL        PATTERN05       
+015C 20B0F4           69                JB P3.0,AGAIN5  
+015F 30B0FD           70                JNB P3.0,$      
+0162 0E               71                INC R6
+                      72               
+                      73              
+                      74     
+0163                  75     AGAIN6:  
+0163 EE               76                Mov A,R6
+0164 1200C8           77                    LCALL   get_SSD_code
+0167 F580             78                        MOV P0,A 
+0169 12031E           79                        LCALL        PATTERN06       
+016C 20B0F4           80                JB P3.0,AGAIN6           
+016F 30B0FD           81                JNB P3.0,$ 
+0172 0E               82                    INC R6
+                      83              
+                      84     
+                      85     
+0173                  86     AGAIN7: 
+0173 EE               87                Mov A,R6
+0174 1200C8           88                    LCALL   get_SSD_code
+0177 F580             89                        MOV P0,A 
+0179 12035A           90                        LCALL        PATTERN07       
+017C 20B0F4           91                JB P3.0,AGAIN7           
+017F 30B0FD           92                JNB P3.0,$ 
+0182 0E               93                    INC R6
+                      94               
+                      95             
+                      96     
+0183                  97     AGAIN8:  
+0183 EE               98               Mov A,R6
+0184 1200C8           99                   LCALL   get_SSD_code
+0187 F580            100                       MOV P0,A
+0189 1203AB          101                       LCALL PATTERN08       
+018C 20B0F4          102               JB P3.0,AGAIN8  
+018F 30B0FD          103               JNB P3.0,$       
+0192 0E              104               INC R6
+                     105                
+                     106               
+                     107     
+0193                 108     AGAIN9:   
+0193 EE              109                Mov A,R6
+0194 1200C8          110                    LCALL   get_SSD_code
+0197 F580            111                        MOV P0,A 
+0199 120298          112                        LCALL        PATTERN04       
+019C 20B0F4          113                JB P3.0,AGAIN9            
+019F 30B0FD          114                JNB P3.0,$ 
+01A2 0E              115                    INC R6
+                     116               
+                     117             
+                     118     
+01A3                 119     AGAIN10:   
+01A3 EE              120                 Mov A,R6
+01A4 1200C8          121                     LCALL   get_SSD_code
+01A7 F580            122                         MOV P0,A 
+01A9 120418          123                         LCALL       PATTERN10       
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     3
+
+01AC 20B0F4          124                 JB P3.0,AGAIN10             
+01AF 30B0FD          125                 JNB P3.0,$ 
+01B2 7E00            126                     Mov R6,#00h
+01B4 120113          127                     LCALL AGAIN                 
+                     128     
+                     129     
+                     130     
+                     131     
+01B7                 132     PATTERN01:
+01B7 D2A7            133             SETB    P2.7            ; PORT-2 PIN-0 HIGH
+01B9 12030A          134             LCALL   DELAY           ; CALL DELAY
+01BC C2A7            135             CLR     P2.7            ; PORT-2 PIN-0 LOW
+01BE 12030A          136             LCALL   DELAY           ; CALL DELAY
+                     137             
+01C1 D2A6            138             SETB    P2.6            ; PORT-2 PIN-0 HIGH
+01C3 12030A          139             LCALL   DELAY           ; CALL DELAY 
+01C6 C2A6            140             CLR     P2.6            ; PORT-2 PIN-0 LOW
+01C8 12030A          141             LCALL   DELAY           ; CALL DELAY 
+                     142             
+01CB D2A5            143             SETB    P2.5            ; PORT-2 PIN-0 HIGH
+01CD 12030A          144             LCALL   DELAY           ; CALL DELAY 
+01D0 C2A5            145             CLR     P2.5            ; PORT-2 PIN-0 LOW
+01D2 12030A          146             LCALL   DELAY           ; CALL DELAY 
+                     147     
+01D5 D2A4            148             SETB    P2.4            ; PORT-2 PIN-0 HIGH
+01D7 12030A          149             LCALL   DELAY           ; CALL DELAY 
+01DA C2A4            150             CLR     P2.4            ; PORT-2 PIN-0 LOW
+01DC 12030A          151             LCALL   DELAY           ; CALL DELAY 
+                     152     
+01DF D2A3            153             SETB    P2.3            ; PORT-2 PIN-0 HIGH
+01E1 12030A          154             LCALL   DELAY           ; CALL DELAY 
+01E4 C2A3            155             CLR     P2.3            ; PORT-2 PIN-0 LOW
+01E6 12030A          156             LCALL   DELAY           ; CALL DELAY 
+                     157     
+01E9 D2A2            158             SETB    P2.2            ; PORT-2 PIN-0 HIGH
+01EB 12030A          159             LCALL   DELAY           ; CALL DELAY 
+01EE C2A2            160             CLR     P2.2            ; PORT-2 PIN-0 LOW
+01F0 12030A          161             LCALL   DELAY           ; CALL DELAY 
+                     162     
+01F3 D2A1            163             SETB    P2.1            ; PORT-2 PIN-0 HIGH
+01F5 12030A          164             LCALL   DELAY           ; CALL DELAY 
+01F8 C2A1            165             CLR     P2.1            ; PORT-2 PIN-0 LOW
+01FA 12030A          166             LCALL   DELAY           ; CALL DELAY 
+                     167     
+01FD D2A0            168             SETB    P2.0            ; PORT-2 PIN-0 HIGH
+01FF 12030A          169             LCALL   DELAY           ; CALL DELAY 
+0202 C2A0            170             CLR     P2.0            ; PORT-2 PIN-0 LOW
+0204 12030A          171             LCALL   DELAY           ; CALL DELAY 
+0207 22              172     RET
+                     173     
+0208                 174     PATTERN02:
+0208 D2A7            175             SETB    P2.7
+020A D2A0            176             SETB    P2.0
+020C 12030A          177             LCALL   DELAY           
+020F C2A7            178             CLR     P2.7
+0211 C2A0            179             CLR P2.0
+0213 12030A          180             LCALL   DELAY
+                     181             
+0216 D2A6            182             SETB    P2.6
+0218 D2A1            183             SETB    P2.1
+021A 12030A          184             LCALL   DELAY           
+021D C2A6            185             CLR     P2.6
+021F C2A1            186             CLR P2.1
+0221 12030A          187             LCALL   DELAY
+                     188             
+0224 D2A5            189             SETB    P2.5
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     4
+
+0226 D2A2            190             SETB    P2.2
+0228 12030A          191             LCALL   DELAY           
+022B C2A5            192             CLR     P2.5
+022D C2A2            193             CLR P2.2
+022F 12030A          194             LCALL   DELAY
+                     195             
+0232 D2A4            196             SETB    P2.4
+0234 D2A3            197             SETB    P2.3
+0236 12030A          198             LCALL   DELAY           
+0239 C2A4            199             CLR     P2.4
+023B C2A3            200             CLR P2.3
+023D 12030A          201             LCALL   DELAY
+                     202     
+0240 D2A5            203             SETB    P2.5
+0242 D2A2            204             SETB    P2.2
+0244 12030A          205             LCALL   DELAY   
+0247 C2A5            206             CLR     P2.5
+0249 C2A2            207             CLR P2.2
+024B 12030A          208             LCALL   DELAY
+                     209             
+024E D2A6            210             SETB    P2.6
+0250 D2A1            211             SETB    P2.1
+0252 12030A          212             LCALL   DELAY   
+0255 C2A6            213             CLR     P2.6
+0257 C2A1            214             CLR P2.1
+0259 12030A          215             LCALL   DELAY
+                     216             
+025C D2A7            217             SETB    P2.7
+025E D2A0            218             SETB    P2.0
+0260 12030A          219             LCALL   DELAY   
+0263 C2A7            220             CLR     P2.7
+0265 C2A0            221             CLR P2.0
+0267 12030A          222             LCALL   DELAY
+026A 22              223     RET
+                     224     
+026B                 225     PATTERN03:
+026B D2A0            226             SETB    P2.0
+026D D2A2            227             SETB    P2.2
+026F D2A4            228             SETB    P2.4
+0271 D2A6            229             SETB    P2.6
+0273 12030A          230             LCALL   DELAY           
+0276 C2A0            231             CLR     P2.0
+0278 C2A2            232             CLR P2.2
+027A C2A4            233             CLR P2.4
+027C C2A6            234             CLR P2.6
+027E 12030A          235             LCALL   DELAY
+0281 D2A1            236             SETB    P2.1
+0283 D2A3            237             SETB    P2.3
+0285 D2A5            238             SETB    P2.5
+0287 D2A7            239             SETB    P2.7
+0289 12030A          240             LCALL   DELAY           
+028C C2A1            241             CLR     P2.1
+028E C2A3            242             CLR P2.3
+0290 C2A5            243             CLR P2.5
+0292 C2A7            244             CLR P2.7
+0294 12030A          245             LCALL   DELAY
+0297 22              246     RET
+                     247     
+0298                 248     PATTERN04:
+0298 D2A0            249             SETB    P2.0
+029A D2A1            250             SETB    P2.1
+029C D2A6            251             SETB    P2.6
+029E D2A7            252             SETB    P2.7
+02A0 12030A          253             LCALL   DELAY
+02A3 C2A0            254             CLR P2.0
+02A5 C2A1            255             CLR P2.1
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     5
+
+02A7 C2A6            256             CLR P2.6
+02A9 C2A7            257             CLR P2.7
+02AB 12030A          258             LCALL DELAY
+                     259             
+02AE D2A2            260             SETB    P2.2
+02B0 D2A3            261             SETB    P2.3
+02B2 D2A4            262             SETB    P2.4
+02B4 D2A5            263             SETB    P2.5
+02B6 12030A          264             LCALL   DELAY
+02B9 C2A2            265             CLR P2.2
+02BB C2A3            266             CLR P2.3
+02BD C2A4            267             CLR P2.4
+02BF C2A5            268             CLR P2.5
+02C1 12030A          269             LCALL DELAY
+                     270             
+02C4 D2A2            271             SETB    P2.2
+02C6 D2A3            272             SETB    P2.3
+02C8 D2A4            273             SETB    P2.4
+02CA D2A5            274             SETB    P2.5
+02CC 12030A          275             LCALL   DELAY
+02CF C2A2            276             CLR P2.2
+02D1 C2A3            277             CLR P2.3
+02D3 C2A4            278             CLR P2.4
+02D5 C2A5            279             CLR P2.5
+02D7 12030A          280             LCALL DELAY
+                     281             
+02DA D2A0            282             SETB    P2.0
+02DC D2A1            283             SETB    P2.1
+02DE D2A6            284             SETB    P2.6
+02E0 D2A7            285             SETB    P2.7
+02E2 12030A          286             LCALL   DELAY
+02E5 C2A0            287             CLR P2.0
+02E7 C2A1            288             CLR P2.1
+02E9 C2A6            289             CLR P2.6
+02EB C2A7            290             CLR P2.7
+02ED 12030A          291             LCALL DELAY
+                     292             
+02F0 22              293             RET
+                     294     
+02F1                 295     PATTERN05:
+02F1 D2A0            296             SETB    P2.0
+02F3 D2A7            297             SETB    P2.7
+02F5 12030A          298             LCALL DELAY
+02F8 C2A0            299             CLR P2.0
+02FA C2A7            300             CLR P2.7
+                     301             
+02FC D2A5            302             SETB    P2.5
+02FE D2A2            303             SETB    P2.2
+0300 12030A          304             LCALL   DELAY
+0303 C2A5            305             CLR P2.5
+0305 C2A2            306             CLR P2.2
+                     307             
+0307 D2A3            308             SETB    P2.3
+0309 D2A4            309             SETB    P2.4
+030B 12030A          310             LCALL   DELAY
+030E C2A4            311             CLR P2.4
+0310 C2A3            312             CLR P2.3
+                     313             
+0312 D2A1            314             SETB    P2.1
+0314 D2A6            315             SETB    P2.6
+0316 12030A          316             LCALL   DELAY
+0319 C2A1            317             CLR P2.1
+031B C2A6            318             CLR P2.6
+                     319             
+031D 22              320             RET
+                     321     ;//========================================================================================
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     6
+
+                             ============
+031E                 322     PATTERN06:
+031E D2A0            323             SETB    P2.0
+0320 12030A          324             LCALL DELAY
+0323 D2A1            325             SETB    P2.1
+0325 12030A          326             LCALL DELAY
+0328 C2A0            327             CLR P2.0
+032A D2A2            328             SETB    P2.2
+032C 12030A          329             LCALL DELAY
+032F C2A1            330             CLR P2.1
+0331 D2A3            331             SETB    P2.3
+0333 12030A          332             LCALL DELAY
+0336 C2A2            333             CLR P2.2
+0338 D2A4            334             SETB    P2.4
+033A 12030A          335             LCALL DELAY
+033D C2A3            336             CLR P2.3
+033F D2A5            337             SETB    P2.5
+0341 12030A          338             LCALL DELAY
+0344 C2A4            339             CLR P2.4
+0346 D2A6            340             SETB    P2.6
+0348 12030A          341             LCALL DELAY
+034B C2A5            342             CLR P2.5
+034D D2A7            343             SETB    P2.7
+034F 12030A          344             LCALL DELAY
+0352 C2A6            345             CLR P2.6
+0354 12030A          346             LCALL DELAY
+0357 C2A7            347             CLR P2.7
+                     348             
+0359 22              349             RET
+                     350     
+035A                 351     PATTERN07:
+035A D2A0            352             SETB P2.0
+035C 12030A          353             LCALL DELAY
+035F D2A1            354             SETB P2.1
+0361 12030A          355             LCALL DELAY
+0364 D2A2            356             SETB P2.2
+0366 12030A          357             LCALL DELAY
+0369 D2A3            358             SETB P2.3
+036B 12030A          359             LCALL DELAY
+036E D2A4            360             SETB P2.4
+0370 12030A          361             LCALL DELAY
+0373 D2A5            362             SETB P2.5
+0375 12030A          363             LCALL DELAY
+0378 D2A6            364             SETB P2.6
+037A 12030A          365             LCALL DELAY
+037D D2A7            366             SETB P2.7
+037F 12030A          367             LCALL DELAY
+                     368             
+0382 C2A0            369             CLR P2.0
+0384 12030A          370             LCALL DELAY
+0387 C2A1            371             CLR P2.1
+0389 12030A          372             LCALL DELAY
+038C C2A2            373             CLR P2.2
+038E 12030A          374             LCALL DELAY
+0391 C2A3            375             CLR P2.3
+0393 12030A          376             LCALL DELAY
+0396 C2A4            377             CLR P2.4
+0398 12030A          378             LCALL DELAY
+039B C2A5            379             CLR P2.5
+039D 12030A          380             LCALL DELAY
+03A0 C2A6            381             CLR P2.6
+03A2 12030A          382             LCALL DELAY
+03A5 C2A7            383             CLR P2.7
+03A7 12030A          384             LCALL DELAY
+                     385             
+03AA 22              386             RET
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     7
+
+                     387     
+03AB                 388     PATTERN08:
+03AB D2A0            389             SETB    P2.0
+03AD 12030A          390             LCALL DELAY
+03B0 D2A1            391             SETB    P2.1
+03B2 12030A          392             LCALL DELAY
+03B5 C2A0            393             CLR P2.0
+03B7 D2A3            394             SETB    P2.3
+03B9 12030A          395             LCALL DELAY
+03BC C2A1            396             CLR P2.1
+03BE D2A5            397             SETB    P2.5
+03C0 12030A          398             LCALL DELAY
+03C3 C2A3            399             CLR P2.3
+03C5 D2A7            400             SETB    P2.7
+03C7 12030A          401             LCALL DELAY
+03CA C2A5            402             CLR P2.5
+03CC D2A6            403             SETB    P2.6
+03CE 12030A          404             LCALL DELAY
+03D1 C2A7            405             CLR P2.7
+03D3 D2A4            406             SETB    P2.4
+03D5 12030A          407             LCALL DELAY
+03D8 C2A6            408             CLR P2.6
+03DA D2A2            409             SETB    P2.2
+03DC 12030A          410             LCALL DELAY
+03DF C2A4            411             CLR P2.4
+03E1 D2A0            412             SETB    P2.0
+03E3 12030A          413             LCALL DELAY
+03E6 C2A2            414             CLR P2.2
+03E8 C2A0            415             CLR P2.0
+                     416             
+03EA 22              417             RET
+                     418     
+03EB                 419     PATTERN09:
+03EB D2A0            420             SETB    P2.0
+03ED D2A4            421             SETB    P2.4
+03EF D2A3            422             SETB    P2.3
+03F1 D2A7            423             SETB    P2.7
+03F3 12030A          424             LCALL DELAY
+03F6 C2A0            425             CLR P2.0
+03F8 C2A4            426             CLR P2.4
+03FA C2A3            427             CLR P2.3
+03FC C2A7            428             CLR P2.7
+03FE 12030A          429             LCALL DELAY
+                     430             
+0401 D2A2            431             SETB    P2.2
+0403 D2A6            432             SETB    P2.6
+0405 D2A1            433             SETB    P2.1
+0407 D2A5            434             SETB    P2.5
+0409 12030A          435             LCALL DELAY
+040C C2A2            436             CLR P2.2
+040E C2A6            437             CLR P2.6
+0410 C2A1            438             CLR P2.1
+0412 C2A5            439             CLR P2.5
+0414 12030A          440             LCALL DELAY
+                     441             
+0417 22              442             RET
+                     443     
+0418                 444     PATTERN10:
+0418 D2A0            445             SETB    P2.0
+041A D2A2            446             SETB    P2.2
+041C D2A7            447             SETB    P2.7
+041E D2A5            448             SETB    P2.5
+0420 12030A          449             LCALL DELAY
+0423 D2A1            450             SETB    P2.1
+0425 D2A3            451             SETB    P2.3
+0427 D2A6            452             SETB    P2.6
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     8
+
+0429 D2A4            453             SETB    P2.4
+042B C2A0            454             CLR P2.0
+042D C2A2            455             CLR P2.2
+042F C2A5            456             CLR P2.5
+0431 C2A7            457             CLR P2.7
+0433 12030A          458             LCALL DELAY
+0436 C2A1            459             CLR P2.1
+0438 C2A3            460             CLR P2.3
+043A C2A6            461             CLR P2.6
+043C C2A4            462             CLR P2.4
+043E 12030A          463             LCALL DELAY
+                     464             
+0441 22              465             RET
+                     466     
+                     467     
+                     468     
+                     469     
+                     470                     
+00C8                 471     ORG 0200
+00C8                 472     get_SSD_code:
+00C8 900300          473                   MOV DPTR,#0300h
+                     474              
+00CB 93              475                   MOVC A,@A+DPTR 
+00CC 22              476               RET
+0300                 477     org 0300h
+0300 3F065B4F        478     ssd_lookup: DB 3Fh,06h,5Bh,4Fh,66h,6Dh,7Dh,07h,7Fh,6Fh
+0304 666D7D07                
+0308 7F6F                    
+                     479             
+                     480     
+030A                 481     DELAY: 
+                     482     
+030A A990            483         up2:  MOV R1,P1
+030C 7BFA            484             up3:  MOV R3,#250
+030E DBFE            485                   DJNZ R3,$
+0310 D9FA            486                       DJNZ R1,up3   
+                     487                     ;  DJNZ R5,up2
+                     488                      ; DJNZ R1,up1
+                     489             
+0312 22              490     RET
+                     491             
+                     492     
+                     493             
+                     494     END                     ; END OF PROGRAM
+A51 MACRO ASSEMBLER  LED_CHASER                                                           05/24/2021 15:30:25 PAGE     9
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0113H   A   
+AGAIN10. . . . . .  C ADDR   01A3H   A   
+AGAIN2 . . . . . .  C ADDR   0123H   A   
+AGAIN3 . . . . . .  C ADDR   0133H   A   
+AGAIN4 . . . . . .  C ADDR   0143H   A   
+AGAIN5 . . . . . .  C ADDR   0153H   A   
+AGAIN6 . . . . . .  C ADDR   0163H   A   
+AGAIN7 . . . . . .  C ADDR   0173H   A   
+AGAIN8 . . . . . .  C ADDR   0183H   A   
+AGAIN9 . . . . . .  C ADDR   0193H   A   
+DELAY. . . . . . .  C ADDR   030AH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+GET_SSD_CODE . . .  C ADDR   00C8H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PATTERN01. . . . .  C ADDR   01B7H   A   
+PATTERN02. . . . .  C ADDR   0208H   A   
+PATTERN03. . . . .  C ADDR   026BH   A   
+PATTERN04. . . . .  C ADDR   0298H   A   
+PATTERN05. . . . .  C ADDR   02F1H   A   
+PATTERN06. . . . .  C ADDR   031EH   A   
+PATTERN07. . . . .  C ADDR   035AH   A   
+PATTERN08. . . . .  C ADDR   03ABH   A   
+PATTERN09. . . . .  C ADDR   03EBH   A   
+PATTERN10. . . . .  C ADDR   0418H   A   
+SSD_LOOKUP . . . .  C ADDR   0300H   A   
+START. . . . . . .  C ADDR   0100H   A   
+UP2. . . . . . . .  C ADDR   030AH   A   
+UP3. . . . . . . .  C ADDR   030CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
