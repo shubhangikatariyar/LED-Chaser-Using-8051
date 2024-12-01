@@ -7,6 +7,8 @@
 - **Demo Video**: [▶️ Watch the project in action](https://youtu.be/iF4nVP354X0)  
 - **Concept Explanation Video**: [▶️ Learn the concept behind the project](https://youtu.be/Wh3meVNk_aI)  
 
+[![LED Chaser Simulation](led.gif)](https://youtu.be/iF4nVP354X0)
+
 ## 📝 Project Description  
 
 The **LED Chaser** is a project that creates a running light effect, where LEDs light up sequentially in a loop, mimicking the appearance of a chaser. This is achieved using an 8051 microcontroller, which controls the timing and pattern of LED illumination.  
